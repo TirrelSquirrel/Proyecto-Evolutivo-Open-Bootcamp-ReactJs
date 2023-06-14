@@ -2,32 +2,66 @@ import React, { useState, useEffect } from "react";
 import { Task } from "../../models/task.class";
 import { LEVELS } from "../../models/levels.enum";
 import TaskComponent from "../pure/task";
-import '../../styles/task.scss';
+import "../../styles/task.scss";
+import TaskForm from "../pure/forms/taskForm";
 
 const TaskListComponent = () => {
-  const defaultTask = new Task(
-    "Example",
-    "Default description",
+  const defaultTask1 = new Task(
+    "Example1",
+    "Default description 1",
     false,
     LEVELS.NORMAL
   );
+  const defaultTask2 = new Task(
+    "Example2",
+    "Default description 2",
+    true,
+    LEVELS.URGENTE
+  );
+  const defaultTask3 = new Task(
+    "Example3",
+    "Default description 3",
+    false,
+    LEVELS.BLOCKING
+  );
 
   // Estado del componente
-  const [tasks, setTasks] = useState([defaultTask]);
+  const [tasks, setTasks] = useState([
+    defaultTask1,
+    defaultTask2,
+    defaultTask3,
+  ]);
   const [loading, setLoading] = useState(true);
 
   // Control del ciclo de vida del co,mponente
   useEffect(() => {
-    console.log("Task changed");
     setLoading(false);
     return () => {
-      console.log("tasklist component is going to unmount");
+      console.log("Task state modificado");
     };
   }, [tasks]);
 
-  const changeCompleted = (id) => {
-    console.log("TODO: Cambiar estado de una tarea");
-  };
+  function completeTask(task) {
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks[index].completed = !tempTasks[index].completed;
+    // actualizamos el estado del componente
+    // se verá actualizada la tarea
+    setTasks(tempTasks);
+  }
+
+  function deleteTask(task) {
+    const index = tasks.indexOf(task);
+    const tempTasks = [...tasks];
+    tempTasks.splice(index, 1);
+    setTasks(tempTasks);
+  }
+
+  function addTask(task) {
+    const tempTasks = [...tasks];
+    tempTasks.push(task);
+    setTasks(tempTasks);
+  }
 
   return (
     <div>
@@ -53,13 +87,22 @@ const TaskListComponent = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* TODO: Iterar sobre una lista de tareas */}
-                <TaskComponent task={defaultTask}></TaskComponent>
+                {tasks.map((task, index) => {
+                  return (
+                    <TaskComponent
+                      key={index}
+                      task={task}
+                      complete={completeTask}
+                      remove={deleteTask}
+                    ></TaskComponent>
+                  );
+                })}
               </tbody>
             </table>
           </div>
         </div>
       </div>
+      <TaskForm add={addTask}></TaskForm>
     </div>
   );
 };
