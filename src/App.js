@@ -32,9 +32,9 @@ function App() {
 
 
       {/* EJEMPLOS DE RENDERIZADO CONDICIONAL */}
-      <OptionalRender></OptionalRender>
+      {/* <OptionalRender></OptionalRender> */}
       {/* PROYECTO FINAL */}
-      {/* <TaskListComponent></TaskListComponent> */}
+      <TaskListComponent></TaskListComponent>
     </div>
   );
 }

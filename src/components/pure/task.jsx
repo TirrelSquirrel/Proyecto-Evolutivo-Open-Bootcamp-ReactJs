@@ -6,9 +6,7 @@ import { LEVELS } from "../../models/levels.enum";
 
 const TaskComponent = ({ task, complete, remove }) => {
   useEffect(() => {
-    console.log(task);
     return () => {
-      console.log(task.name + ' is going to unmount')
     };
   }, [task]);
 
@@ -74,8 +72,12 @@ const TaskComponent = ({ task, complete, remove }) => {
     }
   }
 
+  const completedStyles = task.completed
+    ? "frw-normal task-completed"
+    : "frw-normal task-pending";
+
   return (
-    <tr className="frw-normal">
+    <tr className={completedStyles}>
       <th>
         <span className="ms-2">{task.name}</span>
       </th>

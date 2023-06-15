@@ -34,9 +34,9 @@ const OptionalRender = () => {
     const [access, setAccess] = useState(false);
     const [nMessages, setNMessages] = useState(0);
 
-    const updateAccess = () => {
-        setAccess(!access);
-    }
+    // const updateAccess = () => {
+    //     setAccess(!access);
+    // }
 
     const loginAction = () => {
         setAccess(true);
