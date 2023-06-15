@@ -11,6 +11,7 @@ import Ejemplo4 from "./hooks/Ejemplo4";
 import GreetingStyled from "./components/pure/greetingStyled";
 import Father from "./components/container/father";
 import OptionalRender from "./components/pure/optionalRender";
+import LoginFormik from "./components/pure/forms/loginFormik";
 
 function App() {
   return (
@@ -30,11 +31,14 @@ function App() {
       {/* <GreetingStyled name='Baute'></GreetingStyled> */}
       {/* <Father></Father> */}
 
-
       {/* EJEMPLOS DE RENDERIZADO CONDICIONAL */}
       {/* <OptionalRender></OptionalRender> */}
+
+      {/* EJEMPLOS DE FORMIK Y YUP */}
+      <LoginFormik></LoginFormik>
+
       {/* PROYECTO FINAL */}
-      <TaskListComponent></TaskListComponent>
+      {/* <TaskListComponent></TaskListComponent> */}
     </div>
   );
 }

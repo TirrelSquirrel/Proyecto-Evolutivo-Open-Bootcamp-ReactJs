@@ -7,11 +7,13 @@
     "bootstrap": "^5.3.0",
     "bootstrap-icons": "^1.10.5",
     "cra-template": "1.2.0",
+    "formik": "^2.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.63.3",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.19",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
