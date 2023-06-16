@@ -3,6 +3,8 @@ import HomePage from "./pages/home/HomePage";
 import NotFoundPage from "./pages/404/NotFoundPage";
 import AboutPage from "./pages/about-faqs/AboutPage";
 import ProfilePage from "./pages/profile/ProfilePage";
+import TaskPage from './pages/tasks/TasksPage'
+import TaskDetailPage from './pages/tasks/TaskDetailpage'
 
 function AppRoutingOne() {
   return (
@@ -20,6 +22,8 @@ function AppRoutingOne() {
           <Route path="profile" element={<ProfilePage></ProfilePage>}></Route>
           <Route path="about" element={<AboutPage></AboutPage>}></Route>
           <Route path="faqs" element={<AboutPage></AboutPage>}></Route>
+          <Route path="tasks" element={<TaskPage></TaskPage>}></Route>
+          <Route path="tasks/:id" element={<TaskDetailPage></TaskDetailPage>}></Route>
           {/* Page not found */}
           <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
         </Routes>
