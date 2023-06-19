@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation, useNavigate} from 'react-router-dom'
+import {useLocation, useNavigate, Link} from 'react-router-dom'
 
 const HomePage = () => {
       const location = useLocation();
@@ -16,7 +16,15 @@ const HomePage = () => {
       <div>
         <h1>Home Page</h1>
         <div>
-          <button onClick={() => goTo("profile")}>Go Profile</button>
+          <button onClick={() => goTo("/profile")}>Go Profile</button>
+          {/* ! apaño de la actualizacion en el v6 para pasar props 
+           !por el link y pasando un estado
+          */}
+          <button>
+            <Link to={"/online-state?online=true"} state={{ online: true }}>
+              Online State
+            </Link>
+          </button>
         </div>
       </div>
     );
