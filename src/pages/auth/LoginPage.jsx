@@ -1,11 +1,11 @@
 import React from 'react';
-import LoginForm from '../../components/pure/forms/loginForm';
+import LoginFormik from '../../components/pure/forms/loginFormik';
 
 const LoginPage = () => {
     return (
         <div>
             <h1>Login Page</h1>
-            <LoginForm></LoginForm>
+            <LoginFormik></LoginFormik>
         </div>
     );
 }
