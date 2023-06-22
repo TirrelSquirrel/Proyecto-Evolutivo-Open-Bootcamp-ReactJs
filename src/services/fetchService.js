@@ -1,9 +1,6 @@
 export const getAllUsers = async () => {
     try {
       let response = await fetch("https://reqres.in/api/users");
-      console.log(response);
-      console.log('STATUS: ' + response.status)
-      console.log('OK: ' + response.ok)
       // Devolvemos el json
       return response.json();
     } catch (error) {
@@ -16,9 +13,6 @@ export const getAllUsers = async () => {
 export const getAllPagedUsers = async(page) => {
     try {
       let response = await fetch("https://reqres.in/api/users?page=" + page);
-      console.log(response);
-      console.log("STATUS: " + response.status);
-      console.log("OK: " + response.ok);
       // Devolvemos el json
       return response.json();
     } catch (error) {
@@ -29,9 +23,6 @@ export const getAllPagedUsers = async(page) => {
 export const getUserDetails = async (id) => {
   try {
     let response = await fetch("https://reqres.in/api/users/" + id);
-    console.log(response);
-    console.log("STATUS: " + response.status);
-    console.log("OK: " + response.ok);
     // Devolvemos el json
     return response.json();
   } catch (error) {
@@ -41,5 +32,21 @@ export const getUserDetails = async (id) => {
 
 export const login = async(email, password) => {
 
-  
+  let body = {
+    email: email,
+    password: password
+  }
+
+  let response = await fetch('https://reqres.in/api/login', {
+    method: 'POST',
+    //mode: 'no-cors',
+    //credentials: 'omit',
+    //cache: 'no-cache',
+    //headers: {
+    //  'Content-type': 'application/json'
+    //},
+    body: JSON.stringify(body)
+  })
+
+  return response.json();
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllUsers, getAllPagedUsers, getUserDetails } from "../../services/fetchService";
+import { getAllUsers, getAllPagedUsers, getUserDetails, login } from "../../services/fetchService";
 
 const FetchExample = () => {
   const [users, setUsers] = useState([]);
@@ -63,9 +63,24 @@ const FetchExample = () => {
       });
   }
   
+  const authUser = () => {
+    login("eve.holt@reqres.in", "cityslicka")
+      .then((response) => {
+        console.log("Token", response.token);
+        sessionStorage.setItem('token', response.token)
+      })
+      .catch((error) => {
+        alert("Error al recoger al logear: " + error);
+      })
+      .finally(() => {
+        console.log("Ya he logeado");
+      });
+  }
 
   return (
     <div>
+    {/* Button to simulate loggin */}
+    <button onClick={authUser}>Auth User</button>
       <h2>Users:</h2>
       {users.map((user, index) => (
         <p key={index} onClick={() => obtainUserDetails(user.id)}>
