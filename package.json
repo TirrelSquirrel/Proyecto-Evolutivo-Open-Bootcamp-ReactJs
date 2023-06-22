@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
+    "rxjs": "^7.8.1",
     "sass": "^1.63.3",
     "yarn": "^1.22.19",
     "yup": "^1.2.0"
